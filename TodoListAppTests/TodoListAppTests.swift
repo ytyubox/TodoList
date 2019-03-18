@@ -25,6 +25,15 @@ class TodoListAppTests: XCTestCase {
     assert(code.g == 0, "green fail")
     assert(code.b == 15, "blue fail")
   }
+  func testAppColor() {
+    let codes = ["FF4355","FBAA21","0063FF"].map{$0.RGB_Htoi}
+    let colors = [UIColor.todoRed,.todoOrange,.todoBlue]
+
+    zip(codes, colors).enumerated().forEach{
+      let color = UIColor(r: $1.0.r, g: $1.0.g, b: $1.0.b)
+      assert($1.1 == color,  "App red fail"  +  "\($0)\($1)")
+    }
+  }
 
     func testExample() {
         // This is an example of a functional test case.
