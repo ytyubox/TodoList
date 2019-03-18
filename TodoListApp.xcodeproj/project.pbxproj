@@ -13,6 +13,7 @@
 		AA1C068E223F6D9A00E953D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA1C068D223F6D9A00E953D6 /* Assets.xcassets */; };
 		AA1C0691223F6D9A00E953D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA1C068F223F6D9A00E953D6 /* LaunchScreen.storyboard */; };
 		AA1C069C223F6D9A00E953D6 /* TodoListAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1C069B223F6D9A00E953D6 /* TodoListAppTests.swift */; };
+		AA1C06A7223F729F00E953D6 /* AppExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1C06A6223F729F00E953D6 /* AppExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		AA1C0697223F6D9A00E953D6 /* TodoListAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodoListAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA1C069B223F6D9A00E953D6 /* TodoListAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListAppTests.swift; sourceTree = "<group>"; };
 		AA1C069D223F6D9A00E953D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA1C06A6223F729F00E953D6 /* AppExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				AA1C0688223F6D9800E953D6 /* ViewController.swift */,
 				AA1C068A223F6D9800E953D6 /* Main.storyboard */,
 				AA1C068D223F6D9A00E953D6 /* Assets.xcassets */,
+				AA1C06A6223F729F00E953D6 /* AppExtension.swift */,
 				AA1C068F223F6D9A00E953D6 /* LaunchScreen.storyboard */,
 				AA1C0692223F6D9A00E953D6 /* Info.plist */,
 			);
@@ -197,6 +200,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA1C06A7223F729F00E953D6 /* AppExtension.swift in Sources */,
 				AA1C0689223F6D9800E953D6 /* ViewController.swift in Sources */,
 				AA1C0687223F6D9800E953D6 /* AppDelegate.swift in Sources */,
 			);

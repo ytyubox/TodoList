@@ -19,6 +19,13 @@ class TodoListAppTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
+  func testStringRGBHextoInt(){
+    let code = "FF000F".RGB_Htoi
+    assert(code.r == 255, "red fail")
+    assert(code.g == 0, "green fail")
+    assert(code.b == 15, "blue fail")
+  }
+
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
