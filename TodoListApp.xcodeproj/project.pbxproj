@@ -14,6 +14,10 @@
 		AA1C0691223F6D9A00E953D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA1C068F223F6D9A00E953D6 /* LaunchScreen.storyboard */; };
 		AA1C069C223F6D9A00E953D6 /* TodoListAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1C069B223F6D9A00E953D6 /* TodoListAppTests.swift */; };
 		AA1C06A7223F729F00E953D6 /* AppExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1C06A6223F729F00E953D6 /* AppExtension.swift */; };
+		AA1C06A9223F934A00E953D6 /* CalenderDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1C06A8223F934A00E953D6 /* CalenderDataSource.swift */; };
+		AA1C06AC223F94DD00E953D6 /* DayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1C06AA223F94DD00E953D6 /* DayCollectionViewCell.swift */; };
+		AA1C06AD223F94DD00E953D6 /* DayCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA1C06AB223F94DD00E953D6 /* DayCollectionViewCell.xib */; };
+		AA2F1D25223FB21A002E7F6F /* TryCollectionViewCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2F1D24223FB21A002E7F6F /* TryCollectionViewCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +42,10 @@
 		AA1C069B223F6D9A00E953D6 /* TodoListAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListAppTests.swift; sourceTree = "<group>"; };
 		AA1C069D223F6D9A00E953D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA1C06A6223F729F00E953D6 /* AppExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppExtension.swift; sourceTree = "<group>"; };
+		AA1C06A8223F934A00E953D6 /* CalenderDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderDataSource.swift; sourceTree = "<group>"; };
+		AA1C06AA223F94DD00E953D6 /* DayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCollectionViewCell.swift; sourceTree = "<group>"; };
+		AA1C06AB223F94DD00E953D6 /* DayCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DayCollectionViewCell.xib; sourceTree = "<group>"; };
+		AA2F1D24223FB21A002E7F6F /* TryCollectionViewCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TryCollectionViewCollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +69,7 @@
 		AA1C067A223F6D9800E953D6 = {
 			isa = PBXGroup;
 			children = (
+				AA2F1D24223FB21A002E7F6F /* TryCollectionViewCollectionViewController.swift */,
 				AA1C0685223F6D9800E953D6 /* TodoListApp */,
 				AA1C069A223F6D9A00E953D6 /* TodoListAppTests */,
 				AA1C0684223F6D9800E953D6 /* Products */,
@@ -79,9 +88,12 @@
 		AA1C0685223F6D9800E953D6 /* TodoListApp */ = {
 			isa = PBXGroup;
 			children = (
+				AA1C06AA223F94DD00E953D6 /* DayCollectionViewCell.swift */,
+				AA1C06AB223F94DD00E953D6 /* DayCollectionViewCell.xib */,
 				AA1C0686223F6D9800E953D6 /* AppDelegate.swift */,
 				AA1C0688223F6D9800E953D6 /* ViewController.swift */,
 				AA1C068A223F6D9800E953D6 /* Main.storyboard */,
+				AA1C06A8223F934A00E953D6 /* CalenderDataSource.swift */,
 				AA1C068D223F6D9A00E953D6 /* Assets.xcassets */,
 				AA1C06A6223F729F00E953D6 /* AppExtension.swift */,
 				AA1C068F223F6D9A00E953D6 /* LaunchScreen.storyboard */,
@@ -183,6 +195,7 @@
 				AA1C0691223F6D9A00E953D6 /* LaunchScreen.storyboard in Resources */,
 				AA1C068E223F6D9A00E953D6 /* Assets.xcassets in Resources */,
 				AA1C068C223F6D9800E953D6 /* Main.storyboard in Resources */,
+				AA1C06AD223F94DD00E953D6 /* DayCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,9 +213,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA1C06A9223F934A00E953D6 /* CalenderDataSource.swift in Sources */,
 				AA1C06A7223F729F00E953D6 /* AppExtension.swift in Sources */,
 				AA1C0689223F6D9800E953D6 /* ViewController.swift in Sources */,
+				AA1C06AC223F94DD00E953D6 /* DayCollectionViewCell.swift in Sources */,
 				AA1C0687223F6D9800E953D6 /* AppDelegate.swift in Sources */,
+				AA2F1D25223FB21A002E7F6F /* TryCollectionViewCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
