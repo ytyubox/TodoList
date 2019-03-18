@@ -10,7 +10,10 @@ import UIKit
 
 class CalenderDataSource: NSObject, UICollectionViewDataSource {
   var controller:UICollectionViewDelegate?
-  var Todos = [Todo]()
+  var todos: [Todo] = [
+    Todo(title: "do something", type: .red),
+    Todo(title: "do something", type: .blue)
+  ]
   var days :[Int] = (0...6).map{_ in
     let currentday = Calendar.current.component(.day, from: Date())
     return currentday
@@ -19,11 +22,13 @@ class CalenderDataSource: NSObject, UICollectionViewDataSource {
 
 
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return days.count
+    return collectionView.tag == 0  ? days.count : todos.count
   }
 
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
+    switch collectionView.tag {
+    case 0:
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DayCell", for: indexPath) as! DayCollectionViewCell
     let day = days[indexPath.item]
     let currentWeekDay = Calendar.current.component(.weekday, from: Date())
@@ -31,6 +36,13 @@ class CalenderDataSource: NSObject, UICollectionViewDataSource {
     if cell.titleLabel.text == day.description {cell.titleLabel.textColor = .red}
     cell.titleLabel.backgroundColor = .gray
     return cell
+    default:
+      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TodoCell", for: indexPath) as! TodoCollectionViewCell
+      let todo = todos[indexPath.item]
+      cell.indacatorView.backgroundColor = todo.type.color
+      return cell
+
+    }
   }
 
 
@@ -44,7 +56,7 @@ extension CalenderDataSource:UICollectionViewDelegate{
 extension CalenderDataSource:UICollectionViewDelegateFlowLayout{
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     let width = UIScreen.main.bounds.width
-    return CGSize(width: collectionView.tag == 0 ? width / 7 : width, height: 30)
+    return CGSize(width: collectionView.tag == 0 ? width / 7 : width, height: collectionView.tag == 0 ? 30 : 85)
   }
 
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -74,6 +86,17 @@ struct Todo:Codable {
     case red
     case blue
     case orange
+
+    var color:UIColor{
+      switch self {
+      case .red:
+        return .todoRed
+      case .blue:
+        return .todoOrange
+      case .orange:
+        return .todoOrange
+      }
+    }
   }
   init(title:String,type:Type,time:Date = Date(),alermTime:Date? = nil) {
     self.title = title

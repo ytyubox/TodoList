@@ -18,6 +18,8 @@
 		AA1C06AC223F94DD00E953D6 /* DayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1C06AA223F94DD00E953D6 /* DayCollectionViewCell.swift */; };
 		AA1C06AD223F94DD00E953D6 /* DayCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA1C06AB223F94DD00E953D6 /* DayCollectionViewCell.xib */; };
 		AA2F1D25223FB21A002E7F6F /* TryCollectionViewCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2F1D24223FB21A002E7F6F /* TryCollectionViewCollectionViewController.swift */; };
+		AA2F1D28223FC42B002E7F6F /* TodoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2F1D26223FC42B002E7F6F /* TodoCollectionViewCell.swift */; };
+		AA2F1D29223FC42B002E7F6F /* TodoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA2F1D27223FC42B002E7F6F /* TodoCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,8 @@
 		AA1C06AA223F94DD00E953D6 /* DayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCollectionViewCell.swift; sourceTree = "<group>"; };
 		AA1C06AB223F94DD00E953D6 /* DayCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DayCollectionViewCell.xib; sourceTree = "<group>"; };
 		AA2F1D24223FB21A002E7F6F /* TryCollectionViewCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TryCollectionViewCollectionViewController.swift; sourceTree = "<group>"; };
+		AA2F1D26223FC42B002E7F6F /* TodoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCollectionViewCell.swift; sourceTree = "<group>"; };
+		AA2F1D27223FC42B002E7F6F /* TodoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +92,8 @@
 		AA1C0685223F6D9800E953D6 /* TodoListApp */ = {
 			isa = PBXGroup;
 			children = (
+				AA2F1D26223FC42B002E7F6F /* TodoCollectionViewCell.swift */,
+				AA2F1D27223FC42B002E7F6F /* TodoCollectionViewCell.xib */,
 				AA1C06AA223F94DD00E953D6 /* DayCollectionViewCell.swift */,
 				AA1C06AB223F94DD00E953D6 /* DayCollectionViewCell.xib */,
 				AA1C0686223F6D9800E953D6 /* AppDelegate.swift */,
@@ -195,6 +201,7 @@
 				AA1C0691223F6D9A00E953D6 /* LaunchScreen.storyboard in Resources */,
 				AA1C068E223F6D9A00E953D6 /* Assets.xcassets in Resources */,
 				AA1C068C223F6D9800E953D6 /* Main.storyboard in Resources */,
+				AA2F1D29223FC42B002E7F6F /* TodoCollectionViewCell.xib in Resources */,
 				AA1C06AD223F94DD00E953D6 /* DayCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,6 +226,7 @@
 				AA1C06AC223F94DD00E953D6 /* DayCollectionViewCell.swift in Sources */,
 				AA1C0687223F6D9800E953D6 /* AppDelegate.swift in Sources */,
 				AA2F1D25223FB21A002E7F6F /* TryCollectionViewCollectionViewController.swift in Sources */,
+				AA2F1D28223FC42B002E7F6F /* TodoCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

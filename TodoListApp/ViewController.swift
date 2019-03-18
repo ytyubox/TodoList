@@ -23,10 +23,8 @@ extension ViewController{
     super.viewDidLoad()
     //    let  calenderDataSource = CalenderDataSource()
     calenderCollectView.register(UINib(nibName: "DayCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "DayCell")
-    todoListCollectionView.register(UINib(nibName: "DayCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "DayCell")
-    if let layout = calenderCollectView.collectionViewLayout as? UICollectionViewFlowLayout {
-      layout.sectionHeadersPinToVisibleBounds = true
-    }
+    todoListCollectionView.register(UINib(nibName: "TodoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "TodoCell")
+
     [calenderCollectView,todoListCollectionView]
       .forEach{
         $0?.delegate = calenderDataSource
