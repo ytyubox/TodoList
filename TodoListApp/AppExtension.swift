@@ -41,3 +41,17 @@ extension String{
   }
 
 }
+
+extension UIButton{
+
+  func switchArrow() {
+    guard var title = currentTitle,
+      "▲▼".contains(title.last!) else { return }
+
+    switch title.removeLast() == "▲"{
+    case true:  title += "▼"
+    case false: title += "▲"
+    }
+    setTitle(title, for: .normal)
+  }
+}
