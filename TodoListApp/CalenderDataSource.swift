@@ -40,8 +40,8 @@ class CalenderDataSource: NSObject, UICollectionViewDataSource {
     default:
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TodoCell", for: indexPath) as! TodoCollectionViewCell
       let todo = todos[indexPath.item]
-      cell.indacatorView.backgroundColor = todo.type.color
-      
+      cell.todo = todo
+
       return cell
 
     }
@@ -58,7 +58,8 @@ extension CalenderDataSource:UICollectionViewDelegate{
 extension CalenderDataSource:UICollectionViewDelegateFlowLayout{
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     let width = UIScreen.main.bounds.width
-    return CGSize(width: collectionView.tag == 0 ? width / 7 : width, height: collectionView.tag == 0 ? 30 : 85)
+    return CGSize(width: collectionView.tag == 0 ? (width - 10) / 7 : width - 50,
+                  height: collectionView.tag == 0 ? 30 : 85)
   }
 
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -81,6 +82,7 @@ struct Day:Codable {
 struct Todo:Codable {
   var title:String
   var type:Type
+  var description:String?
   var time:Date
   var alermTime:Date?
 
@@ -100,7 +102,7 @@ struct Todo:Codable {
       }
     }
   }
-  init(title:String,type:Type,time:Date = Date(),alermTime:Date? = nil) {
+  init(title:String,type:Type,description:String = "", time:Date = Date(),alermTime:Date? = nil) {
     self.title = title
     self.type = type
     self.time = time
