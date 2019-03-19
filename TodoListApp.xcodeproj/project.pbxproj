@@ -48,6 +48,7 @@
 		AA1C06AB223F94DD00E953D6 /* DayCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DayCollectionViewCell.xib; sourceTree = "<group>"; };
 		AA2F1D26223FC42B002E7F6F /* TodoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCollectionViewCell.swift; sourceTree = "<group>"; };
 		AA2F1D27223FC42B002E7F6F /* TodoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoCollectionViewCell.xib; sourceTree = "<group>"; };
+		AA77BD2C2240C6ED00B925CC /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +72,7 @@
 		AA1C067A223F6D9800E953D6 = {
 			isa = PBXGroup;
 			children = (
+				AA77BD2C2240C6ED00B925CC /* MyPlayground.playground */,
 				AA1C0685223F6D9800E953D6 /* TodoListApp */,
 				AA1C069A223F6D9A00E953D6 /* TodoListAppTests */,
 				AA1C0684223F6D9800E953D6 /* Products */,

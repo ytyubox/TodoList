@@ -30,7 +30,7 @@ extension TodoCollectionViewCell{
 extension TodoCollectionViewCell{
   private func makeContent()->NSAttributedString{
     let re = NSMutableAttributedString()
-    let dot = "●".makeDot(type: todo)
+    let dot = "●".makeDot(type: todo!.type)
     let text = ("\t\t" + todo.title).titleText
     let descript = ("\n\t\t" + (todo.description  ?? "")).descriptionText
     [dot,text,descript].compactMap{$0}.forEach{re.append($0)}
@@ -45,11 +45,11 @@ extension TodoCollectionViewCell{
 }
 
 extension String{
-  func makeDot(type:Todo)->NSAttributedString{
+  func makeDot(type:Todo.TodoType)->NSAttributedString{
     guard  self == "●" else { fatalError(self + " is not a dot.")   }
     let typeText: [NSAttributedString.Key:Any] = [
       .font             :UIFont.systemFont(ofSize: 30),
-      .foregroundColor  : type.type.color
+      .foregroundColor  : type.color
     ]
     return NSAttributedString(string: self, attributes: typeText)
   }

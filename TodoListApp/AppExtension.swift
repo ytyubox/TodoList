@@ -55,3 +55,28 @@ extension UIButton{
     setTitle(title, for: .normal)
   }
 }
+
+extension Date{
+  var month:String{
+    let formatter = DateFormatter()
+    formatter.setLocalizedDateFormatFromTemplate("MMMM")
+    return formatter.string(from: self)
+  }
+  var mouthDay:Int{
+    return Calendar.current.component(.day, from: self)
+  }
+  var monthDays:Range<Int>{
+    return Calendar.current.range(of: .day, in: .month, for: self)!
+  }
+  var monthDay:Int{
+    return Calendar.current.component(.day, from: self)
+  }
+  var weekDay:Int{
+    return Calendar.current.component(.weekday, from: self)  - 1
+  }
+  var firstDayofMouth:Date {
+    var componets = Calendar.current.dateComponents( [.year, .month], from: self)
+    componets.day = monthDays.lowerBound
+    return Calendar.current.date(from: componets)!
+  }
+}

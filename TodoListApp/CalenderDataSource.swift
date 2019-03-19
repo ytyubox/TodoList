@@ -11,14 +11,16 @@ import UIKit
 class CalenderDataSource: NSObject, UICollectionViewDataSource {
   var controller:UICollectionViewDelegate?
   var todos: [Todo] = [
-    Todo(title: "do something", type: .red),
+    Todo(title: "do something", type: .red, description: "ABC"),
     Todo(title: "do something", type: .blue),
     Todo(title: "do something", type: .orange)
   ]
-  var days :[Int] = (0...6).map{_ in
-    let currentday = Calendar.current.component(.day, from: Date())
-    return currentday
-  }
+  var days :[Int] =
+  {
+    var first =  Date().firstDayofMouth.weekDay
+    var a =  Array(Date().monthDays)
+    return  (0..<first).reversed().map{-$0} + a
+  }()
 
 
 
@@ -33,9 +35,8 @@ class CalenderDataSource: NSObject, UICollectionViewDataSource {
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DayCell", for: indexPath) as! DayCollectionViewCell
       let day = days[indexPath.item]
       let currentWeekDay = Calendar.current.component(.weekday, from: Date())
-      cell.titleLabel.text = (day + 1 - currentWeekDay + indexPath.item).description
-      if cell.titleLabel.text == day.description {cell.titleLabel.textColor = .red}
-      cell.titleLabel.backgroundColor = .gray
+      cell.titleLabel.text = day > 0 ?  day.description : ""
+      if cell.titleLabel.text == Date().monthDay.description {cell.titleLabel.textColor = .red}
       return cell
     default:
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TodoCell", for: indexPath) as! TodoCollectionViewCell
@@ -75,18 +76,18 @@ extension CalenderDataSource:UICollectionViewDelegateFlowLayout{
   }
 }
 
-struct Day:Codable {
+struct CalData:Codable {
   var date:Date
 }
 
 struct Todo:Codable {
   var title:String
-  var type:Type
+  var type:TodoType
   var description:String?
   var time:Date
   var alermTime:Date?
 
-  enum `Type`:String,Codable {
+  enum TodoType:String,Codable {
     case red
     case blue
     case orange
@@ -102,7 +103,7 @@ struct Todo:Codable {
       }
     }
   }
-  init(title:String,type:Type,description:String = "", time:Date = Date(),alermTime:Date? = nil) {
+  init(title:String,type:TodoType,description:String = "", time:Date = Date(),alermTime:Date? = nil) {
     self.title = title
     self.type = type
     self.time = time

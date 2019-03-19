@@ -12,6 +12,7 @@ class ViewController: UIViewController {
   @IBOutlet var calenderCollectView: UICollectionView!
   @IBOutlet var todoListCollectionView: UICollectionView!
   @IBOutlet var titlebutton: UIButton!
+  @IBOutlet var calendarHeight: NSLayoutConstraint!
   var calenderDataSource = CalenderDataSource()
 }
 
@@ -28,11 +29,17 @@ extension ViewController{
         $0?.dataSource = calenderDataSource
     }
   }
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    titlebutton.setTitle(Date().month + " ▼", for: .normal)
+  }
 
 }
 
 extension ViewController{
   @IBAction func titleTapped(_ sender: UIButton) {
     sender.switchArrow()
+    calendarHeight.constant = 200
+    view.layoutIfNeeded()
   }
 }
