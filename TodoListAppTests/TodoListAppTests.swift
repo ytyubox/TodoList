@@ -20,10 +20,10 @@ class TodoListAppTests: XCTestCase {
     }
 
   func testStringRGBHextoInt(){
-    let code = "FF000F".RGB_Htoi
+    let code = "FF4355".RGB_Htoi
     assert(code.r == 255, "red fail")
-    assert(code.g == 0, "green fail")
-    assert(code.b == 15, "blue fail")
+    assert(code.g == 67, "green fail")
+    assert(code.b == 85, "blue fail")
   }
   func testAppColor() {
     let codes = ["FF4355","FBAA21","0063FF"].map{$0.RGB_Htoi}

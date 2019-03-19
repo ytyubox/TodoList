@@ -12,8 +12,6 @@ class ViewController: UIViewController {
   @IBOutlet var calenderCollectView: UICollectionView!
   @IBOutlet var todoListCollectionView: UICollectionView!
   @IBOutlet var titlebutton: UIButton!
-  var a1 = (1...7).map{$0}
-  var a2 = (10...20).map{$0}
   var calenderDataSource = CalenderDataSource()
 }
 
@@ -21,7 +19,6 @@ extension ViewController{
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    //    let  calenderDataSource = CalenderDataSource()
     calenderCollectView.register(UINib(nibName: "DayCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "DayCell")
     todoListCollectionView.register(UINib(nibName: "TodoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "TodoCell")
 

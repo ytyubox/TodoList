@@ -36,7 +36,7 @@ extension String{
     let bIndex = self.index(self.startIndex, offsetBy: 4)
     let r = Int(self[..<gIndex], radix: 16)!
     let g = Int(self[gIndex..<bIndex], radix: 16)!
-    let b = Int(self[gIndex...], radix: 16)!
+    let b = Int(self[bIndex...], radix: 16)!
     return (r,g,b)
   }
 

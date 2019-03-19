@@ -12,7 +12,8 @@ class CalenderDataSource: NSObject, UICollectionViewDataSource {
   var controller:UICollectionViewDelegate?
   var todos: [Todo] = [
     Todo(title: "do something", type: .red),
-    Todo(title: "do something", type: .blue)
+    Todo(title: "do something", type: .blue),
+    Todo(title: "do something", type: .orange)
   ]
   var days :[Int] = (0...6).map{_ in
     let currentday = Calendar.current.component(.day, from: Date())
@@ -29,17 +30,18 @@ class CalenderDataSource: NSObject, UICollectionViewDataSource {
 
     switch collectionView.tag {
     case 0:
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DayCell", for: indexPath) as! DayCollectionViewCell
-    let day = days[indexPath.item]
-    let currentWeekDay = Calendar.current.component(.weekday, from: Date())
-    cell.titleLabel.text = (day + 1 - currentWeekDay + indexPath.item).description
-    if cell.titleLabel.text == day.description {cell.titleLabel.textColor = .red}
-    cell.titleLabel.backgroundColor = .gray
-    return cell
+      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DayCell", for: indexPath) as! DayCollectionViewCell
+      let day = days[indexPath.item]
+      let currentWeekDay = Calendar.current.component(.weekday, from: Date())
+      cell.titleLabel.text = (day + 1 - currentWeekDay + indexPath.item).description
+      if cell.titleLabel.text == day.description {cell.titleLabel.textColor = .red}
+      cell.titleLabel.backgroundColor = .gray
+      return cell
     default:
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TodoCell", for: indexPath) as! TodoCollectionViewCell
       let todo = todos[indexPath.item]
       cell.indacatorView.backgroundColor = todo.type.color
+      
       return cell
 
     }
@@ -92,7 +94,7 @@ struct Todo:Codable {
       case .red:
         return .todoRed
       case .blue:
-        return .todoOrange
+        return .todoBlue
       case .orange:
         return .todoOrange
       }
