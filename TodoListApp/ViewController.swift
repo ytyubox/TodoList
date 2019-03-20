@@ -14,7 +14,7 @@ class ViewController: UIViewController {
   @IBOutlet var titlebutton: UIButton!
   @IBOutlet var calendarHeight: NSLayoutConstraint!
   @IBOutlet var newButton: UIButton!
-            var calenderDataSource = CalenderDataSource()
+            var calenderDataSource = CalendarDataSource()
 }
 
 extension ViewController{
@@ -32,11 +32,17 @@ extension ViewController{
     let ges = UITapGestureRecognizer(target: self, action: #selector(handletap))
     calenderCollectView.addGestureRecognizer(ges)
     calenderCollectView.isUserInteractionEnabled = true
+    newButton.layer.cornerRadius = newButton.frame.height / 2
+    calenderCollectView.isPagingEnabled = true
   }
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     titlebutton.setTitle(Date().month + " ▼", for: .normal)
     calendarHeight.constant = 30
+  }
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    scroll(true)
   }
 
 }
@@ -49,19 +55,39 @@ extension ViewController{
 
   }
 
+  @IBAction func AddnewTodo(_ sender: UIButton){
+    calenderDataSource.todos.append(Todo(title: "a", type: .blue))
+    todoListCollectionView.reloadData()
+  }
+
+
+  fileprivate func scroll(_ bool: Bool) {
+    var index = 0
+    if bool{
+      let d = Date()
+      index =  d.monthDay + d.firstDayofMonth.weekDay
+    }
+    calenderCollectView.scrollToItem(at: .init(item: index, section: 0), at: [.top,], animated: !bool)
+  }
+
   @objc
   private func handletap(){
     titlebutton.switchArrow()
+    let bool = titlebutton.currentTitle!.hasSuffix("▼")
+
     var offset:CGFloat
-    switch  titlebutton.currentTitle!.hasSuffix("▼") {
+    switch   bool{
     case true:
       offset = 1
     case false:
       let count = calenderDataSource.days.count
       offset = CGFloat((count / 7) + (count % 7 == 0 ?  0 : 1))
+      break
     }
     calendarHeight.constant = offset  * 30
+
     view.layoutIfNeeded()
+    scroll(bool)
     calenderCollectView.reloadData()
   }
 }

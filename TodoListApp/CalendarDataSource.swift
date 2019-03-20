@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CalenderDataSource: NSObject {
+class CalendarDataSource: NSObject {
   var controller:UICollectionViewDelegate?
   var todos: [Todo] = [
     Todo(title: "do something", type: .red, description: "ABC"),
@@ -23,8 +23,7 @@ class CalenderDataSource: NSObject {
 }
 
 
-
-extension CalenderDataSource:UICollectionViewDataSource{
+extension CalendarDataSource:UICollectionViewDataSource{
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return collectionView.tag == 0  ? days.count : todos.count
   }
@@ -49,12 +48,12 @@ extension CalenderDataSource:UICollectionViewDataSource{
 
 }
 
-extension CalenderDataSource:UICollectionViewDelegate{
+extension CalendarDataSource:UICollectionViewDelegate{
 
 
 }
 
-extension CalenderDataSource:UICollectionViewDelegateFlowLayout{
+extension CalendarDataSource:UICollectionViewDelegateFlowLayout{
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     let width = UIScreen.main.bounds.width
     return CGSize(width: collectionView.tag == 0 ? (width - 10) / 7 : width - 50,
@@ -75,11 +74,10 @@ extension CalenderDataSource:UICollectionViewDelegateFlowLayout{
 }
 
 //MARK:- Private
-extension CalenderDataSource{
+extension CalendarDataSource{
   fileprivate func makeCalenderCell(_ collectionView: UICollectionView, _ indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DayCell", for: indexPath) as! DayCollectionViewCell
     let day = days[indexPath.item]
-    let currentWeekDay = Calendar.current.component(.weekday, from: Date())
     cell.titleLabel.text = day > 0 ?  day.description : ""
     if cell.titleLabel.text == Date().monthDay.description {cell.titleLabel.textColor = .red}
     else{cell.titleLabel.textColor = .black}
@@ -116,6 +114,7 @@ struct Todo:Codable {
   }
   init(title:String,type:TodoType,description:String = "", time:Date = Date(),alermTime:Date? = nil) {
     self.title = title
+    self.description = description
     self.type = type
     self.time = time
     self.alermTime = alermTime

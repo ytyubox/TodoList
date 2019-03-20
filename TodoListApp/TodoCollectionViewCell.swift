@@ -44,27 +44,3 @@ extension TodoCollectionViewCell{
   }
 }
 
-extension String{
-  func makeDot(type:Todo.TodoType)->NSAttributedString{
-    guard  self == "●" else { fatalError(self + " is not a dot.")   }
-    let typeText: [NSAttributedString.Key:Any] = [
-      .font             :UIFont.systemFont(ofSize: 30),
-      .foregroundColor  : type.color
-    ]
-    return NSAttributedString(string: self, attributes: typeText)
-  }
-  var titleText:NSAttributedString{
-    let titleText: [NSAttributedString.Key:Any] = [
-      .font             :UIFont.systemFont(ofSize: 30),
-      .foregroundColor  :UIColor.black
-    ]
-    return NSAttributedString(string: self, attributes: titleText)
-  }
-  var descriptionText:NSAttributedString{
-    let descriptionText: [NSAttributedString.Key:Any] = [
-      .font             :UIFont.systemFont(ofSize: 20),
-      .foregroundColor  :UIColor.lightGray
-    ]
-    return NSAttributedString(string: self, attributes: descriptionText)
-  }
-}
