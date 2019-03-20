@@ -20,7 +20,32 @@ class CalendarDataSource: NSObject {
     var a =  Array(Date().monthDays)
     return  (0..<first).reversed().map{-$0} + a
   }()
+  var prepareJSON:Data{
+    guard let data = try? JSONEncoder().encode(todos) else {fatalError("can't make Json")}
+    return data
+  }
 }
+extension CalendarDataSource{
+  func data(for method:Method){
+    let defaults = UserDefaults.standard
+    switch method {
+    case .get:
+      guard let data = defaults.data(forKey: "Todo") else {return}
+      guard let saveData = try? JSONDecoder().decode([Todo].self, from: data) else {
+        fatalError("can't figuare data into Todo")}
+        todos = saveData
+    case .save:
+      defaults.set(prepareJSON, forKey: "Todo")
+    }
+  }
+}
+
+
+  enum Method {
+    case save
+    case get
+  }
+
 
 
 extension CalendarDataSource:UICollectionViewDataSource{

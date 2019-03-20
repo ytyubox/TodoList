@@ -14,7 +14,7 @@ class ViewController: UIViewController {
   @IBOutlet var titlebutton: UIButton!
   @IBOutlet var calendarHeight: NSLayoutConstraint!
   @IBOutlet var newButton: UIButton!
-            var calenderDataSource = CalendarDataSource()
+            var calendarDataSource = CalendarDataSource()
 }
 
 extension ViewController{
@@ -26,14 +26,15 @@ extension ViewController{
 
     [calenderCollectView,todoListCollectionView]
       .forEach{
-        $0?.delegate = calenderDataSource
-        $0?.dataSource = calenderDataSource
+        $0?.delegate = calendarDataSource
+        $0?.dataSource = calendarDataSource
     }
     let ges = UITapGestureRecognizer(target: self, action: #selector(handletap))
     calenderCollectView.addGestureRecognizer(ges)
     calenderCollectView.isUserInteractionEnabled = true
     newButton.layer.cornerRadius = newButton.frame.height / 2
     calenderCollectView.isPagingEnabled = true
+    calendarDataSource.data(for: .get)
   }
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
@@ -56,8 +57,9 @@ extension ViewController{
   }
 
   @IBAction func AddnewTodo(_ sender: UIButton){
-    calenderDataSource.todos.append(Todo(title: "a", type: .blue))
+    calendarDataSource.todos.append(Todo(title: "a", type: .blue))
     todoListCollectionView.reloadData()
+    calendarDataSource.data(for: .save)
   }
 
 
@@ -80,7 +82,7 @@ extension ViewController{
     case true:
       offset = 1
     case false:
-      let count = calenderDataSource.days.count
+      let count = calendarDataSource.days.count
       offset = CGFloat((count / 7) + (count % 7 == 0 ?  0 : 1))
       break
     }
