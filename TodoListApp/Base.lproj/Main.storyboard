@@ -111,6 +111,14 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jRu-Ye-VfF">
+                                <rect key="frame" x="321" y="617" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="+">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -145,6 +153,7 @@
                     <connections>
                         <outlet property="calendarHeight" destination="xo8-aY-tIz" id="GOt-Kx-s5O"/>
                         <outlet property="calenderCollectView" destination="VWv-gn-PUs" id="16Q-mH-KWJ"/>
+                        <outlet property="newButton" destination="jRu-Ye-VfF" id="fWc-SW-lA1"/>
                         <outlet property="titlebutton" destination="ndn-tk-X5N" id="tL4-O6-CZz"/>
                         <outlet property="todoListCollectionView" destination="oFq-zT-axt" id="tRF-c9-5hW"/>
                     </connections>

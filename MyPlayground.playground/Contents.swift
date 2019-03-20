@@ -54,3 +54,36 @@ days.map{formatter.string(from: $0)}.forEach{print($0)}
 
 date.monthDays
 
+
+extension Date{
+  static
+    func makeTheDate(month:Int,day:Int,year:Int,hour:Int = 0 ,minute:Int = 0)->Date?{
+    let calendar = Calendar.current
+
+    var components = DateComponents()
+
+    components.day = day
+    components.month = month
+    components.year = year
+    components.hour = hour
+    components.minute = minute
+
+    return calendar.date(from: components)
+  }
+}
+
+print(Date.makeFakeDate(month: 12, day: 4, year: 1698)!)
+
+//let calendar = Calendar.current
+
+var components = DateComponents()
+
+components.day = 25
+components.month = 1
+components.year = 2011
+components.hour = -5
+components.minute = 15
+
+let newDate = calendar.date(from: components)
+
+print(newDate)

@@ -62,9 +62,6 @@ extension Date{
     formatter.setLocalizedDateFormatFromTemplate("MMMM")
     return formatter.string(from: self)
   }
-  var mouthDay:Int{
-    return Calendar.current.component(.day, from: self)
-  }
   var monthDays:Range<Int>{
     return Calendar.current.range(of: .day, in: .month, for: self)!
   }
@@ -74,9 +71,33 @@ extension Date{
   var weekDay:Int{
     return Calendar.current.component(.weekday, from: self)  - 1
   }
-  var firstDayofMouth:Date {
+  var firstDayofMonth:Date {
     var componets = Calendar.current.dateComponents( [.year, .month], from: self)
     componets.day = monthDays.lowerBound
     return Calendar.current.date(from: componets)!
+  }
+  static
+    func makeTheDate(month:Int,day:Int,year:Int,hour:Int = 0 ,minute:Int = 0)->Date?{
+    let calendar = Calendar.current
+
+    var components = DateComponents()
+
+    components.day = day
+    components.month = month
+    components.year = year
+    components.hour = hour
+    components.minute = minute
+
+    return calendar.date(from: components)
+  }
+}
+
+extension UIView{
+  override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    #if DEBUG
+    print(self.description)
+    #endif
+    super.touchesBegan(touches, with: event)
+    next?.touchesBegan(touches, with: event)
   }
 }

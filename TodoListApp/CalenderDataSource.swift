@@ -8,36 +8,34 @@
 
 import UIKit
 
-class CalenderDataSource: NSObject, UICollectionViewDataSource {
+class CalenderDataSource: NSObject {
   var controller:UICollectionViewDelegate?
   var todos: [Todo] = [
     Todo(title: "do something", type: .red, description: "ABC"),
     Todo(title: "do something", type: .blue),
     Todo(title: "do something", type: .orange)
   ]
-  var days :[Int] =
-  {
-    var first =  Date().firstDayofMouth.weekDay
+  var days :[Int] = {
+    var first =  Date().firstDayofMonth.weekDay
     var a =  Array(Date().monthDays)
     return  (0..<first).reversed().map{-$0} + a
   }()
+}
 
 
 
+extension CalenderDataSource:UICollectionViewDataSource{
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return collectionView.tag == 0  ? days.count : todos.count
   }
+
+
 
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
     switch collectionView.tag {
     case 0:
-      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DayCell", for: indexPath) as! DayCollectionViewCell
-      let day = days[indexPath.item]
-      let currentWeekDay = Calendar.current.component(.weekday, from: Date())
-      cell.titleLabel.text = day > 0 ?  day.description : ""
-      if cell.titleLabel.text == Date().monthDay.description {cell.titleLabel.textColor = .red}
-      return cell
+      return makeCalenderCell(collectionView, indexPath)
     default:
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TodoCell", for: indexPath) as! TodoCollectionViewCell
       let todo = todos[indexPath.item]
@@ -73,6 +71,19 @@ extension CalenderDataSource:UICollectionViewDelegateFlowLayout{
 
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
     return 0
+  }
+}
+
+//MARK:- Private
+extension CalenderDataSource{
+  fileprivate func makeCalenderCell(_ collectionView: UICollectionView, _ indexPath: IndexPath) -> UICollectionViewCell {
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DayCell", for: indexPath) as! DayCollectionViewCell
+    let day = days[indexPath.item]
+    let currentWeekDay = Calendar.current.component(.weekday, from: Date())
+    cell.titleLabel.text = day > 0 ?  day.description : ""
+    if cell.titleLabel.text == Date().monthDay.description {cell.titleLabel.textColor = .red}
+    else{cell.titleLabel.textColor = .black}
+    return cell
   }
 }
 

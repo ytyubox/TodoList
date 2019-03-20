@@ -13,7 +13,8 @@ class ViewController: UIViewController {
   @IBOutlet var todoListCollectionView: UICollectionView!
   @IBOutlet var titlebutton: UIButton!
   @IBOutlet var calendarHeight: NSLayoutConstraint!
-  var calenderDataSource = CalenderDataSource()
+  @IBOutlet var newButton: UIButton!
+            var calenderDataSource = CalenderDataSource()
 }
 
 extension ViewController{
@@ -28,18 +29,39 @@ extension ViewController{
         $0?.delegate = calenderDataSource
         $0?.dataSource = calenderDataSource
     }
+    let ges = UITapGestureRecognizer(target: self, action: #selector(handletap))
+    calenderCollectView.addGestureRecognizer(ges)
+    calenderCollectView.isUserInteractionEnabled = true
   }
-  override func viewDidAppear(_ animated: Bool) {
+  override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     titlebutton.setTitle(Date().month + " ▼", for: .normal)
+    calendarHeight.constant = 30
   }
 
 }
 
 extension ViewController{
-  @IBAction func titleTapped(_ sender: UIButton) {
-    sender.switchArrow()
-    calendarHeight.constant = 200
+  @IBAction
+  private func titleTapped(_ sender: UIButton) {
+    performSelector(onMainThread: #selector(handletap), with: nil, waitUntilDone: false)
+//    sender.switchArrow()
+
+  }
+
+  @objc
+  private func handletap(){
+    titlebutton.switchArrow()
+    var offset:CGFloat
+    switch  titlebutton.currentTitle!.hasSuffix("▼") {
+    case true:
+      offset = 1
+    case false:
+      let count = calenderDataSource.days.count
+      offset = CGFloat((count / 7) + (count % 7 == 0 ?  0 : 1))
+    }
+    calendarHeight.constant = offset  * 30
     view.layoutIfNeeded()
+    calenderCollectView.reloadData()
   }
 }
