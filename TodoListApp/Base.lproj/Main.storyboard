@@ -140,10 +140,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="55t-h7-hcX">
                         <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="Exe-4T-Vrl"/>
-                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ndn-tk-X5N">
-                            <rect key="frame" x="141" y="7" width="93" height="30"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="organize" id="Exe-4T-Vrl"/>
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ndn-tk-X5N">
+                            <rect key="frame" x="51" y="7" width="273" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
                             <state key="normal" title="September ▼">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -159,6 +160,7 @@
                         <outlet property="newButton" destination="jRu-Ye-VfF" id="fWc-SW-lA1"/>
                         <outlet property="titlebutton" destination="ndn-tk-X5N" id="tL4-O6-CZz"/>
                         <outlet property="todoListCollectionView" destination="oFq-zT-axt" id="tRF-c9-5hW"/>
+                        <outlet property="weekdayStackView" destination="A6x-6x-GhW" id="5id-QN-Z3K"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -58,7 +58,10 @@ extension UIButton{
 
 extension Date{
   var month:String{
+    let locale = Locale.preferredLanguages[0]
     let formatter = DateFormatter()
+//    formatter.locale = NSLocale.current
+    formatter.locale = Locale.init(identifier: locale)
     formatter.setLocalizedDateFormatFromTemplate("MMMM")
     return formatter.string(from: self)
   }
@@ -125,5 +128,20 @@ extension String{
       .foregroundColor  :UIColor.lightGray
     ]
     return NSAttributedString(string: self, attributes: descriptionText)
+  }
+}
+
+extension DateFormatter{
+  static func weekdayStrings(withLocale alocale:Locale? = nil)->[String]{
+  let today = Date.makeTheDate(month: 3, day: 17, year: 2019)!
+  let formatter = DateFormatter()
+    formatter.locale = (alocale == nil ? Locale(identifier: Locale.preferredLanguages[0]) :  alocale!)
+  formatter.dateFormat = "EEE"
+  let weekdayStrings: [String]  =
+    (0...6)
+      .map{$0 * 86400}
+      .map{TimeInterval($0)}
+      .map{formatter.string(from: today.addingTimeInterval($0))}
+    return weekdayStrings
   }
 }

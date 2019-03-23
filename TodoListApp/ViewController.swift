@@ -14,6 +14,8 @@ class ViewController: UIViewController {
   @IBOutlet var titlebutton: UIButton!
   @IBOutlet var calendarHeight: NSLayoutConstraint!
   @IBOutlet var newButton: UIButton!
+  @IBOutlet var weekdayStackView: UIStackView!
+
             var calendarDataSource = CalendarDataSource()
 }
 
@@ -38,12 +40,19 @@ extension ViewController{
   }
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    titlebutton.setTitle(Date().month + " ▼", for: .normal)
+    titlebutton.setTitle(Date().month.capitalized + " ▼", for: .normal)
+    let weekdayString = DateFormatter.weekdayStrings()
+    for (i,x) in weekdayStackView.subviews.enumerated(){
+      guard let x = x as? UILabel else {continue}
+      x.text = weekdayString[i].filter{$0 != "."}.capitalized
+    }
+
     calendarHeight.constant = 30
   }
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     scroll(true)
+    print(NSLocale.current.description)
   }
 
 }

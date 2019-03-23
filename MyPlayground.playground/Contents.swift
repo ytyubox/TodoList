@@ -1,8 +1,41 @@
 import UIKit
 
+
+
+let format = DateFormatter()
+format.setLocalizedDateFormatFromTemplate("EEE")
+
+format.string(for: 1)
+func makeTheDate(month:Int,day:Int,year:Int,hour:Int = 0 ,minute:Int = 0)->Date?{
+  let calendar = Calendar.current
+
+  var components = DateComponents()
+
+  components.day = day
+  components.month = month
+  components.year = year
+  components.hour = hour
+  components.minute = minute
+
+  return calendar.date(from: components)
+}
+
 var monthDay = [Int]()
+let today = makeTheDate(month: 3, day: 17, year: 2019)!
+let formatter = DateFormatter()
+formatter.dateFormat = "EEEE"
+var otherweekdayStrings: [String] = []
+for i in 0...6 {
+  let timeIntervalToAdd = TimeInterval(i * 86400)
+  otherweekdayStrings.append(formatter.string(from: today.addingTimeInterval(timeIntervalToAdd)))
+}
+otherweekdayStrings
+
 
 var calendar = Calendar.current
+
+
+
 
 calendar.component(.calendar, from: Date())
 calendar.component(.day, from: Date())
@@ -72,7 +105,7 @@ extension Date{
   }
 }
 
-print(Date.makeFakeDate(month: 12, day: 4, year: 1698)!)
+print(Date.makeTheDate(month: 12, day: 4, year: 1698)!)
 
 //let calendar = Calendar.current
 

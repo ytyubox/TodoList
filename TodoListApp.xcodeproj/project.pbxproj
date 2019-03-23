@@ -91,10 +91,7 @@
 		AA1C0685223F6D9800E953D6 /* TodoListApp */ = {
 			isa = PBXGroup;
 			children = (
-				AA2F1D26223FC42B002E7F6F /* TodoCollectionViewCell.swift */,
-				AA2F1D27223FC42B002E7F6F /* TodoCollectionViewCell.xib */,
-				AA1C06AA223F94DD00E953D6 /* DayCollectionViewCell.swift */,
-				AA1C06AB223F94DD00E953D6 /* DayCollectionViewCell.xib */,
+				AA77BD2D22424A2900B925CC /* Cells */,
 				AA1C0686223F6D9800E953D6 /* AppDelegate.swift */,
 				AA1C0688223F6D9800E953D6 /* ViewController.swift */,
 				AA1C068A223F6D9800E953D6 /* Main.storyboard */,
@@ -114,6 +111,17 @@
 				AA1C069D223F6D9A00E953D6 /* Info.plist */,
 			);
 			path = TodoListAppTests;
+			sourceTree = "<group>";
+		};
+		AA77BD2D22424A2900B925CC /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				AA2F1D26223FC42B002E7F6F /* TodoCollectionViewCell.swift */,
+				AA2F1D27223FC42B002E7F6F /* TodoCollectionViewCell.xib */,
+				AA1C06AA223F94DD00E953D6 /* DayCollectionViewCell.swift */,
+				AA1C06AB223F94DD00E953D6 /* DayCollectionViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

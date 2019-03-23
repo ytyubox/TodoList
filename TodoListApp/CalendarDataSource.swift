@@ -73,11 +73,6 @@ extension CalendarDataSource:UICollectionViewDataSource{
 
 }
 
-extension CalendarDataSource:UICollectionViewDelegate{
-
-
-}
-
 extension CalendarDataSource:UICollectionViewDelegateFlowLayout{
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     let width = UIScreen.main.bounds.width
@@ -106,6 +101,8 @@ extension CalendarDataSource{
     cell.titleLabel.text = day > 0 ?  day.description : ""
     if cell.titleLabel.text == Date().monthDay.description {cell.titleLabel.textColor = .red}
     else{cell.titleLabel.textColor = .black}
+    let l = UILongPressGestureRecognizer()
+    cell.addGestureRecognizer(l)
     return cell
   }
 }
