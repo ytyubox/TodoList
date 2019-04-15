@@ -111,10 +111,13 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jRu-Ye-VfF">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jRu-Ye-VfF">
                                 <rect key="frame" x="321" y="617" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="Evf-IA-5wM"/>
+                                    <constraint firstAttribute="height" constant="30" id="agP-8o-WlO"/>
+                                </constraints>
                                 <state key="normal" title="+">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -125,12 +128,14 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jRu-Ye-VfF" secondAttribute="trailing" constant="24" id="2So-7j-Fzo"/>
                             <constraint firstItem="VWv-gn-PUs" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-5" id="562-sM-qfj"/>
                             <constraint firstItem="A6x-6x-GhW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="7Qk-Td-yN0"/>
                             <constraint firstItem="oFq-zT-axt" firstAttribute="top" secondItem="VWv-gn-PUs" secondAttribute="bottom" id="PZo-qG-A4g"/>
                             <constraint firstItem="A6x-6x-GhW" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-5" id="QeM-Xn-CbA"/>
                             <constraint firstItem="A6x-6x-GhW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="WbK-Dv-4vZ"/>
                             <constraint firstItem="oFq-zT-axt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="XDw-Ft-m2x"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="jRu-Ye-VfF" secondAttribute="bottom" constant="20" id="YLu-F6-sGS"/>
                             <constraint firstItem="VWv-gn-PUs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="cYx-wF-eHY"/>
                             <constraint firstItem="oFq-zT-axt" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="jsl-AP-Jz4"/>
                             <constraint firstItem="oFq-zT-axt" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="soE-Cv-OiA"/>
@@ -142,7 +147,7 @@
                         <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" systemItem="organize" id="Exe-4T-Vrl"/>
                         <button key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ndn-tk-X5N">
-                            <rect key="frame" x="51" y="7" width="273" height="30"/>
+                            <rect key="frame" x="54" y="1" width="270" height="42"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="25"/>
                             <state key="normal" title="September ▼">
